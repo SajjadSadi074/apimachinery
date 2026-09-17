@@ -214,18 +214,14 @@ type Component struct {
 	// +optional
 	VolumeSnapshotterStats []VolumeSnapshotterStats `json:"volumeSnapshotterStats,omitempty"`
 
-	// LogStats specifies the continuous log backup (i.e. WAL, binlog) specific information
-	// +optional
 	LogStats *LogStats `json:"logStats,omitempty"`
 
 	// ClickHouseStats specifies the ClickHouse Backup specific information
-	// +optional
-	ClickHouseStats *ClickHouseStats `json:"clickHouseStats,omitempty"`
+	ClickHouseStats []ClickHouseStats `json:"clickHouseStats,omitempty"`
 
 	// OracleStats specifies the "OracleBackup" driver specific information
 	// +optional
 	OracleStats *OracleStats `json:"oracleStats,omitempty"`
-
 
 	// Neo4jStats specifies the Neo4j Admin specific information
 	Neo4jStats []Neo4jStats `json:"neo4jStats,omitempty"`
@@ -495,6 +491,7 @@ type OracleStats struct {
 	// Incarnation represents the database incarnation the backup was taken in
 	Incarnation string `json:"incarnation,omitempty"`
 }
+
 // WeaviateStats specifies the information specific to the "Weaviate" driver.
 type WeaviateStats struct {
 	// Id represents the Backup ID.
